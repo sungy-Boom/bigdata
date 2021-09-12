@@ -18,11 +18,12 @@
 
 package big_data;
 
-import org.apache.flink.api.common.functions.FlatMapFunction;
-import org.apache.flink.api.common.typeinfo.Types;
+import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+
+import big_data.flatmap.WordCountFlatMap;
+import big_data.util.WordCountData;
 
 /**
  * Skeleton for a Flink Streaming Job.
@@ -62,14 +63,28 @@ public class StreamingJob {
          *
          */
 
-        DataStream ds = env.readTextFile("flink/src/test");
+        DataStream<String> ds = env.fromElements(WordCountData.WORDS);
 
-        SingleOutputStreamOperator<String> stream =
-                ds.flatMap((FlatMapFunction) (o, collector) -> {
-                    System.out.println();
-                }).returns(Types.STRING);
+        DataStream<Tuple2<String, Integer>> stream = ds.flatMap(new WordCountFlatMap());
+
+        stream = stream.keyBy(v -> v.f0)
+                .sum(1);
+
+        /*stream = stream.keyBy(new KeySelector<Tuple2<String, Integer>, Object>() {
+
+            @Override
+            public Object getKey(Tuple2<String, Integer> stringIntegerTuple2) throws Exception {
+                //可以用来做key的拼接
+                return null;
+            }
+        }).sum(1);*/
+
+        System.out.println();
+
+        stream.print();
 
         // execute program
         env.execute("Flink Streaming Java API Skeleton");
     }
 }
+
