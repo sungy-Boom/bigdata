@@ -17,3 +17,5 @@ deploy-web-api-test-*.sh
 deploy-operation-api-test-*.sh
 deploy-runner-test-*.sh
 **/dependency-reduced-pom.xml
+
+.gitignore
