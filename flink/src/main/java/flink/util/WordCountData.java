@@ -1,4 +1,4 @@
-package big_data.util;
+package flink.util;
 
 /**
  * @author sunguiyong <sunguiong@kuaishou.com>

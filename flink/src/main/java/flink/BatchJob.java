@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package big_data;
+package flink;
 
 import org.apache.flink.api.java.ExecutionEnvironment;
 

@@ -1,11 +1,11 @@
-package big_data;
+package flink;
 
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
-import big_data.flatmap.StockFlatMap;
-import big_data.source.StockSource;
-import big_data.util.Stock;
+import flink.flatmap.StockFlatMap;
+import flink.source.StockSource;
+import flink.util.Stock;
 
 /**
  * @author sunguiyong <sunguiong@kuaishou.com>

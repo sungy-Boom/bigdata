@@ -1,9 +1,9 @@
-package big_data.flatmap;
+package flink.flatmap;
 
 import org.apache.flink.api.common.functions.RichFlatMapFunction;
 import org.apache.flink.util.Collector;
 
-import big_data.util.Stock;
+import flink.util.Stock;
 
 /**
  * @author sunguiyong <sunguiong@kuaishou.com>

@@ -1,4 +1,4 @@
-package big_data.source;
+package flink.source;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,7 +11,7 @@ import org.apache.flink.streaming.api.functions.source.RichSourceFunction;
 
 import com.common.LocalTimeUtil;
 
-import big_data.util.Stock;
+import flink.util.Stock;
 
 /**
  * @author sunguiyong <sunguiong@kuaishou.com>
