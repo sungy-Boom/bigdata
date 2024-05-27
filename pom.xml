@@ -12,6 +12,7 @@
     <modules>
         <module>flink</module>
         <module>common</module>
+        <module>kafka</module>
     </modules>
 
 
